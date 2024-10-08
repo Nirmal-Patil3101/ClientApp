@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.navconter{
+    height: 3rem;
+    width: 76.4%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding-left: 20rem;
+    text-decoration: none;
+    background-color: cornsilk;
+}
+
+.imglogo{
+    height: 100px;
+    width: 100px;
+    /* padding-left: 3rem; */
+    /* margin-right: 50%; */
+}
