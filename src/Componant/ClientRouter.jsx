@@ -7,6 +7,7 @@ import Cart from './Cart';
 import Dish from './Dish';
 import Login from './Login';
 import Order from './Order';
+import Registration from './Registration';
 const ClientRouter = () => {
   return (
     <div>
@@ -19,6 +20,7 @@ const ClientRouter = () => {
             <Route path='/dish' element={<Dish/>}/>
             <Route path='/login' element={<Login/>}/>
             <Route path='/order' element={<Order/>}/>
+            <Route path='/registration' element={<Registration/>}/>
         </Routes>
         </BrowserRouter>
       

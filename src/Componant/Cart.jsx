@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
-  calcluateTotal,
+  calculateTotal,
   decreQty,
   increQty,
   removeItem,
@@ -9,11 +9,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { Card, Col, Row } from "react-bootstrap";
 import { FaArrowUp } from "react-icons/fa";
 import { FaArrowDown } from "react-icons/fa";
+import "../CSS/Cart.css";
 
 const Cart = () => {
   const { cartItems, cartTotal } = useSelector((state) => state.cart);
-  const dispather = useDispatch();
-  dispather(calcluateTotal());
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(calculateTotal());
+  }, [cartItems, dispatch]);
   return (
     <div>
       <h1>cart</h1>
@@ -21,7 +25,7 @@ const Cart = () => {
       <Row>
         {cartItems.map((client) => {
           return (
-            <Col key={client.id} md={3} sm={4} >
+            <Col md={3} sm={4} className="col-cart" key={client._id}>
               <Card>
                 <Card.Img src={`http://localhost:5000/${client.dimg}`} />
                 <Card.Body>
@@ -29,7 +33,7 @@ const Cart = () => {
                   <Card.Text>Price: ${client.dprice}</Card.Text>
                   <button
                     onClick={() => {
-                      dispather(increQty({ fid: client.id }));
+                      dispatch(increQty({ fid: client._id }));
                     }}
                   >
                     <FaArrowUp />
@@ -37,7 +41,7 @@ const Cart = () => {
                   Qty {client.Qty}
                   <button
                     onClick={() => {
-                      dispather(decreQty({ fid: client.id }));
+                      dispatch(decreQty({ fid: client._id }));
                     }}
                   >
                     <FaArrowDown />
@@ -46,7 +50,7 @@ const Cart = () => {
                 <Card.Footer>
                   <button
                     onClick={() => {
-                      dispather(removeItem({ fid: client.id }));
+                      dispatch(removeItem({ fid: client._id }));
                     }}
                   >
                     Remove
@@ -57,7 +61,6 @@ const Cart = () => {
           );
         })}
       </Row>
-      
     </div>
   );
 };

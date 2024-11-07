@@ -14,32 +14,33 @@ const carteSlice = createSlice({
       state.cartItems = [...state.cartItems, newItem];
     },
     removeItem: (state, action) => {
-      let fid = action.payload.fid;
-      state.cartItems = state.cartItems.filter((item) => item.id != fid);
+      state.cartItems = state.cartItems.filter((item) => item._id != action.payload.fid);
     },
     increQty: (state, action) => {
-      let client = state.cartItems.find((itm) => itm.id == action.payload.fid);
-      client.Qty += 1;
+      let food = state.cartItems.find((itm) => itm._id == action.payload.fid);
+      food.Qty += 1;
     },
+
     decreQty: (state, action) => {
-      let client = state.cartItems.find((itm) => itm.id == action.payload.fid);
-      if (client.Qty === 0) {
+      let dish = state.cartItems.find((itm) => itm._id == action.payload.fid);
+      if (dish.Qty === 0) {
         state.cartItems = state.cartItems.filter(
-          (item) => item.id != client.id
+          (item) => item._id != dish._id
         );
       } else {
-        client.Qty -= 1;
+        dish.Qty -= 1;
       }
     },
-    calcluateTotal: (state) => {
+    calculateTotal: (state) => {
       let totalAmount = 0;
       state.cartItems.forEach((client) => {
         totalAmount += client.dprice * client.Qty;
       });
       state.cartTotal = totalAmount;
     },
+    
   },
 });
-export const { addItem, removeItem, calcluateTotal, increQty, decreQty } =
+export const { addItem, removeItem, calculateTotal, increQty, decreQty } =
   carteSlice.actions;
 export default carteSlice.reducer;
