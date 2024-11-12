@@ -1,49 +1,53 @@
-import React, { useState } from 'react'
-import { Container, Form } from 'react-bootstrap'
-import { useDispatch, useSelector } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
-import { login } from '../ReduxWork/UserSlice';
+import React from "react";
+import { Container, Form } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { login } from "../ReduxWork/UserSlice";
+import axios from "axios";
 
 const Login = () => {
   const navigate = useNavigate();
-  const dispatcher = useDispatch();
-  const LoginData = useLocation();
-  // const logoutData = useLocation();
-  const [name, setName] = useState("");
-  const [password, setpassword] = useState("");
-  const { userData } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  const doLogin = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    const reqlogData = Object.fromEntries(formData.entries());
+    console.log("Data", reqlogData);
+    try {
+      const result = await axios.post(
+        "http://localhost:5000/dologin",
+        reqlogData
+      );
+      dispatch(login(result.data.data));
+      alert("Login Successful");
+      navigate("/dish");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
       <h1>Login</h1>
-
       <Container>
-        <Form onSubmit={(e)=>e.preventDefault()}>
-          <Form.Control type='email' placeholder='Enter Email' name='email' onChange={(e)=>setName(e.target.value)} /><br/>
-          <Form.Control type='password' placeholder='Enter Password' name='password' onChange={(e)=> setpassword(e.target.value)}/>
-        </Form><br/>
-        <button
-          onClick={() => {
-            if (userData.name == name && userData.password == password) {
-              dispatcher(login(userData));
-              navigate("/");
-            } else {
-              alert("Incorrect credential");
-            }
-          }}
-        >
-          Login
-        </button>
+        <Form onSubmit={doLogin}>
+          <Form.Control type="email" placeholder="Enter Email" name="cemail" />
+          <br />
+          <Form.Control type="password" placeholder="Enter Password"  name="cpassword"/>
+          <br />
+          <button type="submit">Login</button>
+        </Form>
         <p
           onClick={() => {
             navigate("/registration");
           }}
         >
-          don't have an account? Registration
+          Don't have an account? Register
         </p>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

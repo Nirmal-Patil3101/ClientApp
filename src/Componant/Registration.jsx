@@ -134,6 +134,7 @@ const Registration = () => {
               setpincode(e.target.value);
             }}
           />
+          <Form.Control type="password" placeholder="Enter the Password" name="cpassword" onChange={(e)=>{setpassword(e.target.value);}} />
           <Form.Control type="file" name="image" />
           <button type="submit" className="submit-btn">
             Registration

@@ -8,6 +8,7 @@ import Dish from './Dish';
 import Login from './Login';
 import Order from './Order';
 import Registration from './Registration';
+import Profile from './Profile';
 const ClientRouter = () => {
   return (
     <div>
@@ -21,6 +22,7 @@ const ClientRouter = () => {
             <Route path='/login' element={<Login/>}/>
             <Route path='/order' element={<Order/>}/>
             <Route path='/registration' element={<Registration/>}/>
+            <Route path='/profile' element={<Profile/>}/>
         </Routes>
         </BrowserRouter>
       

@@ -6,6 +6,7 @@ import { FaCartArrowDown } from "react-icons/fa";
 import { MdRestaurantMenu } from "react-icons/md";
 import { IoMdLogIn } from "react-icons/io";
 import { BiSolidDish } from "react-icons/bi";
+import { CgProfile } from "react-icons/cg";
 import "../CSS/Nav.css";
 import logo from '../assets/img/foodlogo.png';
 import { useSelector } from "react-redux";
@@ -43,6 +44,10 @@ const Nav = () => {
       <Link to={"/order"}>
         <BiSolidDish />
         Order
+      </Link>
+      <Link to={"/profile"}>
+        <CgProfile/>
+        Profile
       </Link>
     </div>
   );
