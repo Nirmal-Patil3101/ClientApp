@@ -9,6 +9,7 @@ import Login from './Login';
 import Order from './Order';
 import Registration from './Registration';
 import Profile from './Profile';
+import Orderdetails from './Orderdetails.JSX';
 const ClientRouter = () => {
   return (
     <div>
@@ -23,6 +24,7 @@ const ClientRouter = () => {
             <Route path='/order' element={<Order/>}/>
             <Route path='/registration' element={<Registration/>}/>
             <Route path='/profile' element={<Profile/>}/>
+            <Route path='/orderdetails' element={<Orderdetails/>}/>
         </Routes>
         </BrowserRouter>
       

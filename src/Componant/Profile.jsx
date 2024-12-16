@@ -6,9 +6,12 @@ const Profile = () => {
   const { userData } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   // console.log("DATA", userData);
+ 
+
   return (
     <div>
       <p>Name:{userData.cname}</p>
+      <img src={`http://localhost:5000/${userData.cphoto}`}  />
       <p>Email:{userData.cemail}</p>
       <p>Mobile No:{userData.cmobile}</p>
       <p>Adders:{userData.cadders}</p>

@@ -14,7 +14,9 @@ const carteSlice = createSlice({
       state.cartItems = [...state.cartItems, newItem];
     },
     removeItem: (state, action) => {
-      state.cartItems = state.cartItems.filter((item) => item._id != action.payload.fid);
+      state.cartItems = state.cartItems.filter(
+        (item) => item._id != action.payload.fid
+      );
     },
     increQty: (state, action) => {
       let food = state.cartItems.find((itm) => itm._id == action.payload.fid);
@@ -31,6 +33,10 @@ const carteSlice = createSlice({
         dish.Qty -= 1;
       }
     },
+
+    clearCart: (state) => {
+      state.cartItems = [];
+    },
     calculateTotal: (state) => {
       let totalAmount = 0;
       state.cartItems.forEach((client) => {
@@ -38,9 +44,8 @@ const carteSlice = createSlice({
       });
       state.cartTotal = totalAmount;
     },
-    
   },
 });
-export const { addItem, removeItem, calculateTotal, increQty, decreQty } =
+export const { addItem,clearCart, removeItem, calculateTotal, increQty, decreQty } =
   carteSlice.actions;
 export default carteSlice.reducer;
