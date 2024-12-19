@@ -1,11 +1,18 @@
-import axios from 'axios';
-import React, { useState } from 'react'
-import { Card, CardBody, Col, Container, Form, Row } from 'react-bootstrap';
-import { useLocation } from 'react-router-dom';
-
+import axios from "axios";
+import React, { useState } from "react";
+import {
+  Card,
+  CardBody,
+  Col,
+  Container,
+  Form,
+  Row,
+} from "react-bootstrap";
+import { useLocation, useNavigate } from "react-router-dom";
 const Orderdetails = () => {
   const orderData = useLocation().state;
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState([]);
+  const navigate = useNavigate();
 
   const cancelorder = async () => {
     let reqorderData = {
@@ -26,7 +33,7 @@ const Orderdetails = () => {
   };
 
   return (
-    <div>
+     <div>
       <h1>Detiles</h1>
       <h4>Customer Name:{orderData.ordercustomerid?.cname}</h4>
       <h4>Customer Monileno:{orderData.ordercustomerid?.cmobile}</h4>
@@ -60,7 +67,7 @@ const Orderdetails = () => {
         </Form>
       </Container>
     </div>
-  )
-}
+  );
+};
 
-export default Orderdetails
+export default Orderdetails;
