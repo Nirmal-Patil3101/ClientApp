@@ -9,10 +9,11 @@ import {
   Row,
 } from "react-bootstrap";
 import { useLocation, useNavigate } from "react-router-dom";
+
 const Orderdetails = () => {
   const orderData = useLocation().state;
   const [loading, setLoading] = useState([]);
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   const cancelorder = async () => {
     let reqorderData = {

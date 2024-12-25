@@ -17,7 +17,7 @@ import { useNavigate } from "react-router-dom";
 const Cart = () => {
   const { cartItems, cartTotal } = useSelector((state) => state.cart);
   const { userData } = useSelector((state) => state.user);
-  
+
   let navigate = useNavigate();
   const dispatch = useDispatch();
 
@@ -39,7 +39,10 @@ const Cart = () => {
       orderItems: finalItems,
     };
     try {
-      let result = await axios.post("http://localhost:5000/addorder", orderReqData);
+      let result = await axios.post(
+        "http://localhost:5000/addorder",
+        orderReqData
+      );
       dispatch(clearCart());
       console.log(result.data);
       alert("Order Placed");

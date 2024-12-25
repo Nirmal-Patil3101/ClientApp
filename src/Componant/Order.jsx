@@ -13,24 +13,9 @@ const Order = () => {
 
   const [orders, setorders] = useState([]);
 
-  useEffect(() => {
-    async function fetcorder() {
-      let reqStatus = {
-        orderStatus: "Cancel",
-        ordercustomerid: userData._id,
-      };
-      const result = await axios.post(
-        "http://localhost:5000/Getorderbystatus",
-        reqStatus
-      );
-      setorders(result.data);
-    }
-    fetcorder();
-  }, []);
-  const navvigate = useNavigate();
   return (
     <div>
-       <div>
+      <div>
         <Tabs
           defaultActiveKey="Delivered"
           id="uncontrolled-tab-example"
@@ -51,12 +36,6 @@ const Order = () => {
           </Tab>
         </Tabs>
       </div>
-
-
-
-
-
-
 
       {/* <Row>
         {orders.map((order) => {
