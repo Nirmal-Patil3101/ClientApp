@@ -44,7 +44,7 @@ const InTransit = () => {
                 </CardBody>
                 <Card.Footer>
                   <button onClick={(e)=>{e.preventDefault();
-                    navigate("/orderdetails")
+                    navigate("/orderdetails",{ state: order});
                   }}>View Details</button>
                 </Card.Footer>
               </Card>

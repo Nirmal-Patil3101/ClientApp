@@ -43,7 +43,7 @@ const Cancelled = () => {
                   <Card.Text>Mobile No:{order.ordercustomerid?.cmobile}</Card.Text>
                 </CardBody>
                   <button onClick={(e)=>{e.preventDefault();
-                    navigate("/orderdetails");
+                    navigate("/orderdetails",{state:order});
                   }}>View Details</button>
               </Card>
             </Col>

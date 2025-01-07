@@ -10,8 +10,8 @@ import Pending from "../OrderTabs/Pending";
 
 const Order = () => {
   const { userData } = useSelector((state) => state.user);
-
-  const [orders, setorders] = useState([]);
+  
+  // const [orders, setorders] = useState([]);
 
   return (
     <div>

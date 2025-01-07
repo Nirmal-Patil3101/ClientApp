@@ -40,7 +40,7 @@ const Delivered = () => {
               </CardBody>
               <button onClick={(e)=>{
                 e.preventDefault();
-                navigate("/orderdetails");
+                navigate("/orderdetails",{state:order});
               }}>View Details</button>
             </Card>
             </Col>
