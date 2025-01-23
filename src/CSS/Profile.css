@@ -1,0 +1,49 @@
+/* Profile.css */
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .profile-container {
+    animation: fadeIn 1s ease-in-out;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .profile-container img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .profile-container p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .profile-container button {
+    padding: 10px 20px;
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .profile-container button:hover {
+    background-color: #c82333;
+  }
+  

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import { Container, Form } from "react-bootstrap";
 import { registration } from "../ReduxWork/UserSlice";
 import axios from "axios";
+import "../CSS/Registration.css";
 
 const Registration = () => {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ const Registration = () => {
   }
 
   return (
-    <div>
+    <div className="registration-container">
       <h1>Register</h1>
       <Container>
         <Form

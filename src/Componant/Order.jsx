@@ -7,6 +7,7 @@ import Cancelled from "../OrderTabs/Cancelled";
 import InTransit from "../OrderTabs/InTransit";
 import Delivered from "../OrderTabs/Delivered";
 import Pending from "../OrderTabs/Pending";
+import "../CSS/Order.css"
 
 const Order = () => {
   const { userData } = useSelector((state) => state.user);
@@ -14,8 +15,8 @@ const Order = () => {
   // const [orders, setorders] = useState([]);
 
   return (
-    <div>
-      <div>
+    <div className="order-container">
+      <div className="tabs-container">
         <Tabs
           defaultActiveKey="Delivered"
           id="uncontrolled-tab-example"

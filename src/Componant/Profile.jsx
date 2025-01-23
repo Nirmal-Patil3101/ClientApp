@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../ReduxWork/UserSlice";
+import "../CSS/Profile.css";
 
 const Profile = () => {
   const { userData } = useSelector((state) => state.user);
@@ -9,16 +10,16 @@ const Profile = () => {
  
 
   return (
-    <div>
-      <p>Name:{userData.cname}</p>
+    <div className="profile-container">
       <img src={`http://localhost:5000/${userData.cphoto}`}  />
-      <p>Email:{userData.cemail}</p>
-      <p>Mobile No:{userData.cmobile}</p>
-      <p>Adders:{userData.cadders}</p>
-      <p>Gender:{userData.gender}</p>
-      <p>City:{userData.ccity}</p>
-      <p>State:{userData.cstate}</p>
-      <p>Pincode:{userData.cpincode}</p>
+      <p><strong>Name:</strong> {userData.cname}</p>
+      <p><strong>Email:</strong> {userData.cemail}</p>
+      <p><strong>Mobile No:</strong> {userData.cmobile}</p>
+      <p><strong>Adders:</strong> {userData.cadders}</p>
+      <p><strong>Gender:</strong> {userData.gender}</p>
+      <p><strong>City:</strong> {userData.ccity}</p>
+      <p><strong>State:</strong> {userData.cstate}</p>
+      <p><strong>Pincode:</strong> {userData.cpincode}</p>
       <button
         onClick={() => {
           dispatch(logout());
